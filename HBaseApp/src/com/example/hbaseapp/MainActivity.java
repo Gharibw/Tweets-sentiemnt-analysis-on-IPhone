@@ -1,6 +1,7 @@
 package com.example.hbaseapp;
 
-
+//THis App demonstrates the use of  MapReduce and HBase using WS
+//Gharib Gharibi
 
 import java.io.File;
 import java.io.FileOutputStream;
