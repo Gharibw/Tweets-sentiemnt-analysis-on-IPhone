@@ -1,8 +1,5 @@
 package com.example.hbaseapp;
 
-//THis App demonstrates the use of  MapReduce and HBase using WS
-//Gharib Gharibi
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
@@ -88,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 			
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8181/HDFSWS/jaxrs/generic/hadoopRun/-home-group7-WCJ.jar");
+				webView.loadUrl("http://134.193.136.114:8181/HDFSWS/jaxrs/generic/hadoopRun/-home-group7-WCJ1.jar");
 			}
  
 		});
@@ -101,7 +98,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8080/HDFSWS/jaxrs/generic/viewResult/output");
+				webView.loadUrl("http://134.193.136.114:8181/HDFSWS/jaxrs/generic/viewResult/Gout");
 			}
  
 		});
@@ -114,7 +111,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8080/HBaseWS/jaxrs/generic/hbaseCreate/GTable1/Date:Acc:GPS");
+				webView.loadUrl("http://134.193.136.114:8181/HBaseWS/jaxrs/generic/hbaseCreate/GharibTable/Date:Acc:GPS");
 			}
  
 		});
@@ -127,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8181/HBaseWS/jaxrs/generic/hbaseInsert/GTable1/-home-group7-gps.txt/Date:Acc:GPS");
+				webView.loadUrl("http://134.193.136.114:8181/HBaseWS/jaxrs/generic/hbaseInsert/GharibTable/-home-group7-GPS.txt/Date:Acc:GPS");
 			}
  
 		});
@@ -139,7 +136,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8080/HBaseWS/jaxrs/generic/hbaseRetrieveAll/GTable1");
+				webView.loadUrl("http://134.193.136.114:8181/HBaseWS/jaxrs/generic/hbaseRetrieveAll/GharibTable");
 			}
  
 		});
@@ -151,7 +148,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				
 				webView.setWebViewClient(new WebViewClient());
-				webView.loadUrl("http://134.193.136.114:8080/HBaseWS/jaxrs/generic/hbasedeletel/GTable1");
+				webView.loadUrl("http://134.193.136.114:8181/HBaseWS/jaxrs/generic/hbasedeletel/GharibTable");
 			}
  
 		});
@@ -161,7 +158,7 @@ public class MainActivity extends ActionBarActivity {
       {
 		 
 		  String root = Environment.getExternalStorageDirectory().toString();
-			File myDir = new File(root + "/Data");
+			File myDir = new File(root + "/NewData");
 			String fname = "GPS.txt";
 			myDir.mkdirs();
 		    File file = new File (myDir, fname);
@@ -206,7 +203,7 @@ class SendFile extends AsyncTask<String, Void, String> {
 		        ChannelSftp sftp = (ChannelSftp) channel;
 		        
 		        File sdCard = Environment.getExternalStorageDirectory(); 
-				File directory = new File (sdCard.getAbsolutePath() + "/Data");
+				File directory = new File (sdCard.getAbsolutePath() + "/NewData");
 			    
 				Log.i(null,directory+"/GPS.txt");
 				
