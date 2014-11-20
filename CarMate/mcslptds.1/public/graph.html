@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Graph</title>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<script src="jquery.js"></script>
+<script src="jquery.flot.js"></script>
+<script src="jquery.flot.time.js"></script>
+
+<script>
+  $(document).ready(function() {
+  var dataseries = [];
+
+  $.getJSON("/graphpoints", function(json) {
+    $.plot($("#plot") , [json],{ xaxis: { mode: "time"}});
+  });
+
+  dataseries = [];
+  $.getJSON("test1.js", function(json) {
+    $.plot($("#plot2") , [json],{ xaxis: { mode: "time"}});
+  });
+
+  $("button").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(3000);
+  });
+
+});
+</script>
+</head>
+
+
+<body>
+
+<h1>Plotting Data<h1>
+<div id="plot"></div>
+<div id="plotdata"></div>
+
+<div id="plot2"></div>
+<div id="plotdata2"></div>
+
+<button>Click to fade in boxes</button>
+<br><br>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+</body>
+</html>

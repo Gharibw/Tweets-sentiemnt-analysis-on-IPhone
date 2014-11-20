@@ -1,0 +1,158 @@
+body {
+    font: 16px arial;
+    background-color: #515151;
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* css formats for the gauge */
+.gauge .domain {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.gauge .tick line {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.gauge line {
+    stroke: #fff;
+}
+
+.gauge .arc, .gauge .cursor {
+    opacity: 0;
+}
+
+.gauge .major {
+    fill: #fff;
+    font-size: 20px;
+    font-family: 'Play', verdana, sans-serif;
+    font-weight: normal;
+}
+
+.gauge .indicator {
+    stroke: #EE3311;
+    fill: #000;
+    stroke-width: 4px;
+}
+
+/* css formats for the segment display */
+.segdisplay .on {
+    fill: #00FFFF;
+
+}
+
+.segdisplay .off {
+    fill: #00FFFF;
+    opacity: 0.15;
+}
+
+.slider {
+    width: 80%;
+    margin: 0 0 0 40px;
+}
+
+.round_me {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+}
+
+.pad_me {
+    padding: 10px;
+}
+
+.down_shift_me {
+    margin-top: 7px;
+}
+
+.color_me {
+    color: white;
+}
+
+.throw_left {
+    /*clear:both;*/
+    float:left;
+}
+
+.throw_right {
+    /*clear:both;*/
+    float:right;
+}
+
+.dash_board {
+    margin: 30px 0 30px 60px; /* top right bottom left */
+    width: 1200px;
+    height: 420px;
+}
+
+.virtual_sensors {
+    margin: 30px 0 30px 60px;
+    width: 900px;
+    height: 200px;
+}
+
+.push_right {
+    margin: 10px 0 10px 60px; /* top right bottom left */
+}
+
+.push_far_right {
+    margin: 10px 0 10px 120px; /* top right bottom left */
+}
+
+.small_input input textarea {
+    width: 30px;
+}
+
+.slider {
+    width: 60%;
+    margin: 0 0 0 10px;
+}
+
+.shaded_green {
+    width: 80px;
+    height:80px;
+    background-color:green;
+}
+
+.shaded_yellow {
+    width: 80px;
+    height:80px;
+    background-color:yellow;
+}
+
+.shaded_red {
+    width: 80px;
+    height:80px;
+    background-color:red;
+}
+
+.dash_status {
+    width: 350px;
+    height: 400px;
+}
+
+.inline_me {
+    display: inline-block;
+}
+
+.show_msg {
+    width: 300px;
+    height: 50px;
+}
+
+.kc_map {
+    background-image: url(kc.png);
+    background-repeat:no-repeat;
+    margin-bottom:1px;
+    height:336px;
+    width:360px;
+}

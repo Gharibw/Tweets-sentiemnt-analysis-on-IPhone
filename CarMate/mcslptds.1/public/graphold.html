@@ -1,0 +1,37 @@
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Graph&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.flot.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.flot.time.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  $(document).ready(function() {
+  var dataseries = [];
+
+  $.getJSON("/graphpoints", function(json) {
+  $.plot($("#plot") , [json],{ xaxis: { mode: "time"}});
+  });
+
+  dataseries = [];
+  $.getJSON("test1.js", function(json) {
+    $.plot($("#plot2") , [json],{ xaxis: { mode: "time"}});
+  });
+
+
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;h1&gt;Plotting Data&lt;h1&gt;
+&lt;div id="plot"&gt;&lt;/div&gt;
+&lt;div id="plotdata"&gt;&lt;/div&gt;
+
+&lt;div id="plot2"&gt;&lt;/div&gt;
+&lt;div id="plotdata2"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;

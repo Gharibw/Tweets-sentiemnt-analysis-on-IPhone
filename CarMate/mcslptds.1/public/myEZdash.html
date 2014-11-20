@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <title>myEZdash</title>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
+    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="knockout-2.1.0.debug.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="myEZdash.css">
+    <script src="myEZdash.js"></script>
+
+</head>
+<body>
+    <h1 class="color_me push_right">myEZdash</h1>
+    <div class="round_me pad_me down_shift_me dash_board">
+        <div class="throw_left round_me">
+            <span id="speedometer"></span>
+        </div>
+
+        <div class="throw_left dash_status">
+            <div class="shaded_green push_far_right" data-bind="visible: shouldShowNormal"></div>
+            <div class="shaded_yellow push_far_right" data-bind="visible: shouldShowMaintenance"></div>
+            <div class="shaded_red push_far_right" data-bind="visible: shouldShowEmergency"></div>
+            <span class=" color_me inline_me show_msg pad_me" name="car_status1" data-bind="text: showStatus1"></span>
+            <span class=" color_me inline_me show_msg pad_me" name="car_status2" data-bind="text: showStatus2"></span>
+            <span class=" color_me inline_me show_msg pad_me" name="car_status3" data-bind="text: showStatus3"></span>
+            <span class=" color_me inline_me show_msg pad_me" name="car_status4" data-bind="text: showStatus4"></span>
+        </div>
+
+        <h3 class="color_me throw_right">You are here.</h3>
+        <div class="throw_right kc_map round_me"></div>
+
+    </div>
+    
+    <div class="virtual_sensors">
+        <div class="">
+            <label for="rate" class="color_me">My rate of speed:</label>
+            <input type="text" name="rate" value="" data-bind="value: rate" />
+            <div id="rate-slider" class="slider throw_right"></div>
+        </div>
+
+        <div class=" down_shift_me">
+            <label for="oil" class="color_me">Engine oil level:</label>
+            <input type="text" name="oil" value="" data-bind="value: oil" />
+            <div id="oil-slider" class="slider throw_right"></div>
+        </div>
+
+        <div class=" down_shift_me">
+            <label for="temp" class="color_me">Engine temperature:</label>
+            <input type="text" name="temp" value="" data-bind="value: temp" />
+            <div id="temp-slider" class="slider throw_right"></div>
+        </div>
+
+        <div class=" down_shift_me">
+            <label for="brake" class="color_me">Braking system:</label>
+            <input type="text" name="brake" value="" data-bind="value: brake" />
+            <div id="brake-slider" class="slider throw_right"></div>
+        </div>
+
+        <div class=" down_shift_me">
+            <label for="tire" class="color_me">Tire pressure:</label>
+            <input type="text" name="tire" value="" data-bind="value: tire" />
+            <div id="tire-slider" class="slider throw_right"></div>
+        </div>
+
+        <div class=" down_shift_me">
+            <label for="fuel" class="color_me">Fuel level:</label>
+            <input type="text" name="fuel" value="" data-bind="value: fuel" />
+            <div id="fuel-slider" class="slider throw_right"></div>
+        </div>
+        <h3 class="color_me push_right"> .: Virtual Sensor Readings :.</h3>
+    </div>
+
+</body>

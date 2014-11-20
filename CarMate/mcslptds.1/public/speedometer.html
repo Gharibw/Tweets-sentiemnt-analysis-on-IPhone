@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Speedometer</title>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
+    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+    <style>
+        body {
+            font: 16px arial;
+            background-color: #515151;
+        }
+
+        .unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* css formats for the gauge */
+        .gauge .domain {
+            stroke-width: 2px;
+            stroke: #fff;
+        }
+
+        .gauge .tick line {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+        
+        .gauge line {
+            stroke: #fff;
+        }
+
+        .gauge .arc, .gauge .cursor {
+            opacity: 0;
+        }
+
+        .gauge .major {
+            fill: #fff;
+            font-size: 20px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+        }
+        
+        .gauge .indicator {
+            stroke: #EE3311;
+            fill: #000;
+            stroke-width: 4px;
+        }
+
+        /* css formats for the segment display */
+        .segdisplay .on {
+            fill: #00FFFF;
+
+        }
+
+        .segdisplay .off {
+            fill: #00FFFF;
+            opacity: 0.15;
+        }
+    </style>
+
+
+    <script>
+        $("button").click(function(){
+            $("#div1").fadeIn();
+            $("#div2").fadeIn("slow");
+            $("#div3").fadeIn(3000);
+        });
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <span id="speedometer"></span>
+    </div>
+    
+    <script>
+        var myspeed = 0;
+        var svg = d3.select("#speedometer")
+                .append("svg:svg")
+                .attr("width", 400)
+                .attr("height", 400);
+
+
+        var gauge = iopctrl.arcslider()
+                .radius(120)
+                .events(false)
+                .indicator(iopctrl.defaultGaugeIndicator);
+        gauge.axis().orient("in")
+                .normalize(true)
+                .ticks(12)
+                .tickSubdivide(3)
+                .tickSize(10, 8, 10)
+                .tickPadding(5)
+                .scale(d3.scale.linear()
+                        .domain([0, 160])
+                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+
+        var segDisplay = iopctrl.segdisplay()
+                .width(80)
+                .digitCount(6)
+                .negative(false)
+                .decimals(0);
+
+        svg.append("g")
+                .attr("class", "segdisplay")
+                .attr("transform", "translate(130, 200)")
+                .call(segDisplay);
+
+        svg.append("g")
+                .attr("class", "gauge")
+                .call(gauge);
+
+        segDisplay.value(56749);
+        gauge.value(myspeed);
+    
+    </script>
+
+
+    <script>
+      $(function() {
+        $( "#slider-range" ).slider({
+          range: false,
+          min: 0,
+          max: 160,
+          values: [ 45 ],
+          slide: function( event, ui ) {
+            $( "#amount" ).val( ui.values[ 0 ] );
+          }
+        });
+        $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 )  );
+      });
+      </script>
+
+
+    <p>
+        <label for="amount">Speed:</label>
+        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+ 
+    <div id="slider-range"></div>
+
+    <button>Click to fade in boxes</button>
+    <br><br>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+
+
+    <script>
+
+        for (myspeed = 1; myspeed < 111; myspeed++) {
+            gauge.value(myspeed);
+            setTimeout(function() {
+                myspeed = myspeed * 1;
+            }, (2*1000));
+        }
+
+    </script>
+
+</body>
+
+
+
+
+
+

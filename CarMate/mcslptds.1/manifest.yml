@@ -1,0 +1,14 @@
+applications:
+- services:
+  - bv-home-auto-DataCache
+  - bv-home-auto-MonitoringAndAnalytics
+  - bv-home-auto-TS
+  - bv-home-auto-mongodb
+  disk_quota: 1024M
+  host: bv-home-auto
+  name: bv-home-auto
+  command: node app.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 128M

@@ -1,9 +1,0 @@
----
-applications:
-- memory: 64M
-  domain: mybluemix.net
-  path: .
-  host: sentimentanalysis-53d2d369-ee82-49bc-8158-2586b2912916
-  name: iPhone6
-  command: node app.js
-  instances: 1
